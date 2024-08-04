@@ -40,9 +40,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
                 // 定义全局 SCSS 变量
                 scss: {
                     javascriptEnabled: true,
-                    additionalData: `
-            @use "@/styles/variables.scss" as *;
-          `
+                    additionalData: `@use "@/styles/variables.scss" as *;`
                 }
             }
         },
@@ -64,7 +62,17 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             }
         },
         plugins: [
-            vue(),
+            vue({
+                script: {
+                    defineModel: true
+                },
+                template: {
+                    compilerOptions: {
+                        // custom- 视为自定义元素
+                        isCustomElement: tag => tag.includes('custom-')
+                    }
+                }
+            }),
             // jsx、tsx语法支持
             vueJsx(),
             // MOCK 服务
@@ -72,28 +80,34 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             UnoCSS({
                 hmrTopLevelAwait: false
             }),
+            // 按需导入
             AutoImport({
-                // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
+                // 全局自动导入
                 imports: ['vue', '@vueuse/core', 'pinia', 'vue-router', 'vue-i18n'],
+
                 resolvers: [
                     // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
                     ElementPlusResolver(),
                     // 自动导入图标组件
                     IconsResolver({})
                 ],
-                eslintrc: {
-                    // 是否自动生成 eslint 规则，建议生成之后设置 false
-                    enabled: false,
-                    // 指定自动导入函数 eslint 规则的文件
-                    filepath: './.eslintrc-auto-import.json',
-                    globalsPropValue: true
-                },
-                // 是否在 vue 模板中自动导入
-                vueTemplate: true,
+
                 // Filepath to generate corresponding .d.ts file.
                 // Defaults to './auto-imports.d.ts' when `typescript` is installed locally.
                 // Set `false` to disable.
-                dts: './auto-imports.d.ts'
+                dts: './auto-imports.d.ts',
+
+                // Inject the imports at the end of other imports
+                injectAtEnd: true,
+
+                // Generate corresponding .eslintrc-auto-import.json file.
+                // eslint globals Docs - https://eslint.org/docs/user-guide/configuring/language-options#specifying-globals
+                eslintrc: {
+                    enabled: true, // Default `false`
+                    filepath: './.eslintrc-auto-import.json' // Default `./.eslintrc-auto-import.json`
+                },
+                // 是否在 vue 模板中自动导入
+                vueTemplate: true
             }),
             Components({
                 resolvers: [

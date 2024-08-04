@@ -1,7 +1,5 @@
 <template>
     <div class="dashboard-container">
-        <github-corner class="github-corner" />
-
         <el-card shadow="never">
             <el-row justify="space-between">
                 <el-col :span="18" :xs="24">
