@@ -1,14 +1,26 @@
-dist
-node_modules
-public
-.husky
-.vscode
+.DS_Store
 .idea
-*.sh
-*.md
+.editorconfig
+pnpm-lock.yaml
+.npmrc
+src/assets/
+.tmp
+.cache/
+coverage/
+.nyc_output/
+**/.yarn/**
+**/.pnp.*
+/dist*/
+node_modules/
+**/node_modules/
 
-src/assets
+## Local
+.husky
+.local
 
-.eslintrc.cjs
 .prettierrc.cjs
-.stylelintrc.cjs
+components.d.ts
+auto-imports.d.ts
+.eslintrc.cjs
+.eslintignore
+commitlint.config.cjs

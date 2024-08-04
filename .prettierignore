@@ -1,11 +1,24 @@
-dist
-node_modules
-public
-.husky
-.vscode
+.DS_Store
 .idea
-*.sh
-*.md
+.editorconfig
+pnpm-lock.yaml
+.npmrc
 
-src/assets
-stats.html
+.tmp
+.cache/
+coverage/
+.nyc_output/
+**/.yarn/**
+**/.pnp.*
+/dist*/
+node_modules/
+**/node_modules/
+
+## Local
+.husky
+.local
+
+**/*.svg
+**/*.sh
+components.d.ts
+auto-imports.d.ts
