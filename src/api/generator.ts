@@ -2,7 +2,7 @@ import request from "@/utils/request";
 import { FormTypeEnum } from "@/enums/FormTypeEnum";
 import { QueryTypeEnum } from "@/enums/QueryTypeEnum";
 
-const GENERATOR_BASE_URL = "/api/v1/generator";
+const GENERATOR_BASE_URL = "/v1/admin/generator";
 
 class GeneratorAPI {
   /** 获取数据表分页列表 */

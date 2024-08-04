@@ -2,50 +2,10 @@ import { defineMock } from "./base";
 
 export default defineMock([
   {
-    url: "users/me",
-    method: ["GET"],
-    body: {
-      code: "00000",
-      data: {
-        userId: 2,
-        nickname: "系统管理员",
-        username: "admin",
-        avatar:
-          "https://oss.youlai.tech/youlai-boot/2023/05/16/811270ef31f548af9cffc026dfc3777b.gif",
-        roles: ["ROOT"],
-        perms: [
-          "sys:menu:delete",
-          "sys:dept:edit",
-          "sys:dict_type:add",
-          "sys:dict:edit",
-          "sys:dict:delete",
-          "sys:dict_type:edit",
-          "sys:menu:add",
-          "sys:user:add",
-          "sys:role:edit",
-          "sys:dept:delete",
-          "sys:user:edit",
-          "sys:user:delete",
-          "sys:user:password:reset",
-          "sys:dept:add",
-          "sys:role:delete",
-          "sys:dict_type:delete",
-          "sys:menu:edit",
-          "sys:dict:add",
-          "sys:role:add",
-          "sys:user:query",
-          "sys:user:export",
-        ],
-      },
-      msg: "一切ok",
-    },
-  },
-
-  {
     url: "users/page",
     method: ["GET"],
     body: {
-      code: "00000",
+      code: 200,
       data: {
         list: [
           {
@@ -77,7 +37,7 @@ export default defineMock([
         ],
         total: 2,
       },
-      msg: "一切ok",
+      message: "一切ok",
     },
   },
 
@@ -87,9 +47,9 @@ export default defineMock([
     method: ["POST"],
     body({ body }) {
       return {
-        code: "00000",
+        code: 200,
         data: null,
-        msg: "新增用户" + body.nickname + "成功",
+        message: "新增用户" + body.nickname + "成功",
       };
     },
   },
@@ -100,9 +60,9 @@ export default defineMock([
     method: ["GET"],
     body: ({ params }) => {
       return {
-        code: "00000",
+        code: 200,
         data: userMap[params.userId],
-        msg: "一切ok",
+        message: "一切ok",
       };
     },
   },
@@ -112,9 +72,9 @@ export default defineMock([
     method: ["PUT"],
     body({ body }) {
       return {
-        code: "00000",
+        code: 200,
         data: null,
-        msg: "修改用户" + body.nickname + "成功",
+        message: "修改用户" + body.nickname + "成功",
       };
     },
   },
@@ -125,9 +85,9 @@ export default defineMock([
     method: ["DELETE"],
     body({ params }) {
       return {
-        code: "00000",
+        code: 200,
         data: null,
-        msg: "删除用户" + params.id + "成功",
+        message: "删除用户" + params.id + "成功",
       };
     },
   },
@@ -138,9 +98,9 @@ export default defineMock([
     method: ["PATCH"],
     body({ query }) {
       return {
-        code: "00000",
+        code: 200,
         data: null,
-        msg: "重置密码成功，新密码为：" + query.password,
+        message: "重置密码成功，新密码为：" + query.password,
       };
     },
   },

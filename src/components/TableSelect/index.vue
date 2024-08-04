@@ -137,7 +137,7 @@
         <pagination
           v-if="total > 0"
           v-model:total="total"
-          v-model:page="queryParams.pageNum"
+          v-model:page="queryParams.pageCurrent"
           v-model:limit="queryParams.pageSize"
           @pagination="handlePagination"
         />
@@ -145,8 +145,8 @@
           <el-button type="primary" size="small" @click="handleConfirm">
             {{ confirmText }}
           </el-button>
-          <el-button size="small" @click="handleClear"> 清 空 </el-button>
-          <el-button size="small" @click="handleClose"> 关 闭 </el-button>
+          <el-button size="small" @click="handleClear">清 空</el-button>
+          <el-button size="small" @click="handleClose">关 闭</el-button>
         </div>
       </div>
     </el-popover>
@@ -233,11 +233,11 @@ const pageData = ref<IObject[]>([]);
 const pageSize = 10;
 // 搜索参数
 const queryParams = reactive<{
-  pageNum: number;
+  pageCurrent: number;
   pageSize: number;
   [key: string]: any;
 }>({
-  pageNum: 1,
+  pageCurrent: 1,
   pageSize: pageSize,
 });
 
@@ -268,7 +268,7 @@ function handleQuery() {
 function fetchPageData(isRestart = false) {
   loading.value = true;
   if (isRestart) {
-    queryParams.pageNum = 1;
+    queryParams.pageCurrent = 1;
     queryParams.pageSize = pageSize;
   }
   props.selectConfig

@@ -334,7 +334,7 @@ prepareFuncs.forEach((func) => func());
 
 // 获取表单数据
 function getFormData(key?: string) {
-  return key === undefined ? formData : formData[key] ?? undefined;
+  return key === undefined ? formData : (formData[key] ?? undefined);
 }
 
 // 设置表单值
@@ -371,17 +371,17 @@ const handleSubmit = useThrottleFn(() => {
         props.modalConfig.beforeSubmit(formData);
       }
       props.modalConfig.formAction(formData).then(() => {
-        let msg = "操作成功";
+        let message = "操作成功";
         if (props.modalConfig.component === "drawer") {
           if (props.modalConfig.drawer?.title) {
-            msg = `${props.modalConfig.drawer?.title}成功`;
+            message = `${props.modalConfig.drawer?.title}成功`;
           }
         } else {
           if (props.modalConfig.dialog?.title) {
-            msg = `${props.modalConfig.dialog?.title}成功`;
+            message = `${props.modalConfig.dialog?.title}成功`;
           }
         }
-        ElMessage.success(msg);
+        ElMessage.success(message);
         emit("submitClick");
         handleCloseModal();
       });

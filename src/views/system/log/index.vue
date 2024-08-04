@@ -12,10 +12,14 @@
         </el-form-item>
 
         <el-form-item>
-          <el-button type="primary" @click="handleQuery"
-            ><i-ep-search />搜索</el-button
-          >
-          <el-button @click="handleResetQuery"><i-ep-refresh />重置</el-button>
+          <el-button type="primary" @click="handleQuery">
+            <i-ep-search />
+            搜索
+          </el-button>
+          <el-button @click="handleResetQuery">
+            <i-ep-refresh />
+            重置
+          </el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -46,11 +50,11 @@
           width="150"
         />
       </el-table>
-
+      pageCurrent
       <pagination
         v-if="total > 0"
         v-model:total="total"
-        v-model:page="queryParams.pageNum"
+        v-model:page="queryParams.pageCurrent"
         v-model:limit="queryParams.pageSize"
         @pagination="handleQuery"
       />
@@ -72,7 +76,7 @@ const loading = ref(false);
 const total = ref(0);
 
 const queryParams = reactive<LogPageQuery>({
-  pageNum: 1,
+  pageCurrent: 1,
   pageSize: 10,
   keywords: "",
 });
@@ -95,7 +99,7 @@ function handleQuery() {
 /** 重置查询 */
 function handleResetQuery() {
   queryFormRef.value.resetFields();
-  queryParams.pageNum = 1;
+  queryParams.pageCurrent = 1;
   handleQuery();
 }
 

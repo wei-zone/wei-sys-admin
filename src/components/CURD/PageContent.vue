@@ -245,7 +245,7 @@
             </template>
             <!-- 格式化为百分比 -->
             <template v-else-if="col.templet === 'percent'">
-              <template v-if="col.prop"> {{ scope.row[col.prop] }}% </template>
+              <template v-if="col.prop">{{ scope.row[col.prop] }}%</template>
             </template>
             <!-- 显示图标 -->
             <template v-else-if="col.templet === 'icon'">
@@ -448,7 +448,8 @@
             >
               <el-icon class="el-icon--upload"><upload-filled /></el-icon>
               <div class="el-upload__text">
-                将文件拖到此处，或<em>点击上传</em>
+                将文件拖到此处，或
+                <em>点击上传</em>
               </div>
               <template #tip>
                 <div class="el-upload__tip">
@@ -572,7 +573,7 @@ const pagination = reactive(
 );
 // 分页相关的请求参数
 const request = props.contentConfig.request ?? {
-  pageName: "pageNum",
+  pageName: "pageCurrent",
   limitName: "pageSize",
 };
 

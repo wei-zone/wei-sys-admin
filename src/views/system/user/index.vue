@@ -192,7 +192,7 @@
           <pagination
             v-if="total > 0"
             v-model:total="total"
-            v-model:page="queryParams.pageNum"
+            v-model:page="queryParams.pageCurrent"
             v-model:limit="queryParams.pageSize"
             @pagination="handleQuery"
           />
@@ -314,7 +314,7 @@ const deptOptions = ref<OptionType[]>();
 const roleOptions = ref<OptionType[]>();
 /** 用户查询参数  */
 const queryParams = reactive<UserPageQuery>({
-  pageNum: 1,
+  pageCurrent: 1,
   pageSize: 10,
 });
 
@@ -383,7 +383,7 @@ function handleQuery() {
 function handleResetQuery() {
   queryFormRef.value.resetFields();
   dateTimeRange.value = "";
-  queryParams.pageNum = 1;
+  queryParams.pageCurrent = 1;
   queryParams.deptId = undefined;
   queryParams.startTime = undefined;
   queryParams.endTime = undefined;

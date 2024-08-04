@@ -54,13 +54,13 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     },
     server: {
       // 允许IP访问
-      host: "0.0.0.0",
+      host: true,
       // 应用端口 (默认:3000)
       port: Number(env.VITE_APP_PORT),
       // 运行是否自动打开浏览器
       open: true,
       proxy: {
-        /** 代理前缀为 /dev-api 的请求  */
+        /** 代理前缀为 /api 的请求  */
         [env.VITE_APP_BASE_API]: {
           changeOrigin: true,
           // 接口地址
@@ -79,7 +79,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       UnoCSS({
         hmrTopLevelAwait: false,
       }),
-      // 自动导入参考： https://github.com/sxzz/element-plus-best-practices/blob/main/vite.config.ts
       AutoImport({
         // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
         imports: ["vue", "@vueuse/core", "pinia", "vue-router", "vue-i18n"],

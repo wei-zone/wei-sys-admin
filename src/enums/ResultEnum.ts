@@ -5,7 +5,7 @@ export const enum ResultEnum {
   /**
    * 成功
    */
-  SUCCESS = "00000",
+  SUCCESS = 200,
   /**
    * 错误
    */
@@ -14,5 +14,5 @@ export const enum ResultEnum {
   /**
    * 令牌无效或过期
    */
-  TOKEN_INVALID = "A0230",
+  TOKEN_INVALID = 401,
 }

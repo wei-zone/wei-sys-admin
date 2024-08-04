@@ -34,7 +34,7 @@ export const useUserStore = defineStore("user", () => {
   // 获取信息(用户昵称、头像、角色集合、权限集合)
   function getUserInfo() {
     return new Promise<UserInfo>((resolve, reject) => {
-      UserAPI.getInfo()
+      AuthAPI.getInfo()
         .then((data) => {
           if (!data) {
             reject("Verification failed, please Login again.");

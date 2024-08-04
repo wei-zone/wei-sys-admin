@@ -73,7 +73,7 @@
       <pagination
         v-if="total > 0"
         v-model:total="total"
-        v-model:page="queryParams.pageNum"
+        v-model:page="queryParams.pageCurrent"
         v-model:limit="queryParams.pageSize"
         @pagination="handleQuery"
       />
@@ -387,7 +387,7 @@ const loading = ref(false);
 const loadingText = ref("loading...");
 const total = ref(0);
 const queryParams = reactive<TablePageQuery>({
-  pageNum: 1,
+  pageCurrent: 1,
   pageSize: 10,
 });
 const pageData = ref<TablePageVO[]>([]);
@@ -478,7 +478,7 @@ function handleQuery() {
 /** 重置查询 */
 function handleResetQuery() {
   queryFormRef.value.resetFields();
-  queryParams.pageNum = 1;
+  queryParams.pageCurrent = 1;
   handleQuery();
 }
 

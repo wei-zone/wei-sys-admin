@@ -9,13 +9,11 @@
         inactive-icon="Sunny"
         @change="toggleTheme"
       />
-      <lang-select class="ml-2 cursor-pointer" />
     </div>
     <!-- 登录表单 -->
     <el-card class="login-card">
       <div class="text-center relative">
-        <h2>{{ defaultSettings.title }}</h2>
-        <el-tag class="ml-2 absolute-rt">{{ defaultSettings.version }}</el-tag>
+        <h2>用户登录</h2>
       </div>
 
       <el-form
@@ -91,13 +89,14 @@
           size="large"
           class="w-full"
           @click.prevent="handleLoginSubmit"
-          >{{ $t("login.login") }}
+        >
+          {{ $t("login.login") }}
         </el-button>
 
         <!-- 账号密码提示 -->
         <div class="mt-10 text-sm">
           <span>{{ $t("login.username") }}: admin</span>
-          <span class="ml-4"> {{ $t("login.password") }}: 123456</span>
+          <span class="ml-4">{{ $t("login.password") }}: 123456</span>
         </div>
       </el-form>
     </el-card>
@@ -121,7 +120,6 @@ import { LocationQuery, useRoute } from "vue-router";
 import { useSettingsStore, useUserStore } from "@/store";
 import AuthAPI, { LoginData } from "@/api/auth";
 import router from "@/router";
-import defaultSettings from "@/settings";
 import { ThemeEnum } from "@/enums/ThemeEnum";
 
 // 类型定义

@@ -35,18 +35,18 @@ service.interceptors.response.use(
       return response;
     }
 
-    const { code, data, msg } = response.data;
+    const { code, data, message } = response.data;
     if (code === ResultEnum.SUCCESS) {
       return data;
     }
 
-    ElMessage.error(msg || "系统出错");
-    return Promise.reject(new Error(msg || "Error"));
+    ElMessage.error(message || "系统出错");
+    return Promise.reject(new Error(message || "Error"));
   },
   (error: any) => {
     // 异常处理
     if (error.response.data) {
-      const { code, msg } = error.response.data;
+      const { code, message } = error.response.data;
       if (code === ResultEnum.TOKEN_INVALID) {
         ElNotification({
           title: "提示",
@@ -59,7 +59,7 @@ service.interceptors.response.use(
             location.reload();
           });
       } else {
-        ElMessage.error(msg || "系统出错");
+        ElMessage.error(message || "系统出错");
       }
     }
     return Promise.reject(error.message);

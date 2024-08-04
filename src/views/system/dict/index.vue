@@ -94,7 +94,7 @@
       <pagination
         v-if="total > 0"
         v-model:total="total"
-        v-model:page="queryParams.pageNum"
+        v-model:page="queryParams.pageCurrent"
         v-model:limit="queryParams.pageSize"
         @pagination="handleQuery"
       />
@@ -231,7 +231,7 @@ const ids = ref<number[]>([]);
 const total = ref(0);
 
 const queryParams = reactive<DictPageQuery>({
-  pageNum: 1,
+  pageCurrent: 1,
   pageSize: 10,
 });
 
@@ -276,7 +276,7 @@ function handleQuery() {
 // 重置查询
 function handleResetClick() {
   queryFormRef.value.resetFields();
-  queryParams.pageNum = 1;
+  queryParams.pageCurrent = 1;
   handleQuery();
 }
 

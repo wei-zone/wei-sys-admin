@@ -1,6 +1,6 @@
 {
-  "name": "vue3-element-admin",
-  "version": "2.13.0",
+  "name": "city-exam-system-admin",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "scripts": {

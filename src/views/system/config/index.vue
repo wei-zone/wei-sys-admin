@@ -105,7 +105,7 @@
       <pagination
         v-if="total > 0"
         v-model:total="total"
-        v-model:page="queryParams.pageNum"
+        v-model:page="queryParams.pageCurrent"
         v-model:limit="queryParams.pageSize"
         @pagination="handleQuery"
       />
@@ -187,7 +187,7 @@ const ids = ref<number[]>([]);
 const total = ref(0);
 
 const queryParams = reactive<ConfigPageQuery>({
-  pageNum: 1,
+  pageCurrent: 1,
   pageSize: 10,
   keywords: "",
 });
@@ -236,7 +236,7 @@ function handleQuery() {
 /** 重置系统配置查询 */
 function handleResetQuery() {
   queryFormRef.value.resetFields();
-  queryParams.pageNum = 1;
+  queryParams.pageCurrentrent = 1;
   handleQuery();
 }
 

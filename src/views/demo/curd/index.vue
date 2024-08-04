@@ -41,7 +41,7 @@
           </el-tag>
         </template>
         <template #mobile="scope">
-          <el-text> {{ scope.row[scope.prop] }} </el-text>
+          <el-text>{{ scope.row[scope.prop] }}</el-text>
           <copy-button
             v-if="scope.row[scope.prop]"
             :text="scope.row[scope.prop]"

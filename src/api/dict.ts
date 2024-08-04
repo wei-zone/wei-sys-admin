@@ -1,6 +1,6 @@
 import request from "@/utils/request";
 
-const DICT_BASE_URL = "/api/v1/dict";
+const DICT_BASE_URL = "/v1/admin/dict";
 
 class DictAPI {
   /**

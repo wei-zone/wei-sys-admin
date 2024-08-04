@@ -1,22 +1,15 @@
 import request from "@/utils/request";
+import type { UserInfo } from "./user";
 
-const AUTH_BASE_URL = "/api/v1/auth";
+const AUTH_BASE_URL = "/v1/admin/auth";
 
 class AuthAPI {
   /** 登录 接口*/
   static login(data: LoginData) {
-    const formData = new FormData();
-    formData.append("username", data.username);
-    formData.append("password", data.password);
-    formData.append("captchaKey", data.captchaKey);
-    formData.append("captchaCode", data.captchaCode);
     return request<any, LoginResult>({
       url: `${AUTH_BASE_URL}/login`,
       method: "post",
-      data: formData,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
+      data,
     });
   }
 
@@ -24,7 +17,7 @@ class AuthAPI {
   static logout() {
     return request({
       url: `${AUTH_BASE_URL}/logout`,
-      method: "delete",
+      method: "logout",
     });
   }
 
@@ -32,6 +25,17 @@ class AuthAPI {
   static getCaptcha() {
     return request<any, CaptchaResult>({
       url: `${AUTH_BASE_URL}/captcha`,
+      method: "get",
+    });
+  }
+  /**
+   * 获取当前登录用户信息
+   *
+   * @returns 登录用户昵称、头像信息，包括角色和权限
+   */
+  static getInfo() {
+    return request<any, UserInfo>({
+      url: `${AUTH_BASE_URL}/me`,
       method: "get",
     });
   }

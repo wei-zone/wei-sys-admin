@@ -247,7 +247,7 @@ const handleSuccessFile = (response: any, file: UploadFile) => {
     emit("update:modelValue", valFileList.value);
     return;
   } else {
-    ElMessage.error(response.msg || "上传失败");
+    ElMessage.error(response.message || "上传失败");
   }
 };
 

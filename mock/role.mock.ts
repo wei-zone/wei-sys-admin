@@ -5,7 +5,7 @@ export default defineMock([
     url: "roles/options",
     method: ["GET"],
     body: {
-      code: "00000",
+      code: 200,
       data: [
         {
           value: 2,
@@ -52,7 +52,7 @@ export default defineMock([
           label: "访问游客",
         },
       ],
-      msg: "一切ok",
+      message: "一切ok",
     },
   },
 
@@ -60,7 +60,7 @@ export default defineMock([
     url: "roles/page",
     method: ["GET"],
     body: {
-      code: "00000",
+      code: 200,
       data: {
         list: [
           {
@@ -156,7 +156,7 @@ export default defineMock([
         ],
         total: 10,
       },
-      msg: "一切ok",
+      message: "一切ok",
     },
   },
 
@@ -166,9 +166,9 @@ export default defineMock([
     method: ["POST"],
     body({ body }) {
       return {
-        code: "00000",
+        code: 200,
         data: null,
-        msg: "新增角色" + body.name + "成功",
+        message: "新增角色" + body.name + "成功",
       };
     },
   },
@@ -179,9 +179,9 @@ export default defineMock([
     method: ["GET"],
     body: ({ params }) => {
       return {
-        code: "00000",
+        code: 200,
         data: roleMap[params.id],
-        msg: "一切ok",
+        message: "一切ok",
       };
     },
   },
@@ -191,9 +191,9 @@ export default defineMock([
     method: ["PUT"],
     body({ body }) {
       return {
-        code: "00000",
+        code: 200,
         data: null,
-        msg: "修改角色" + body.name + "成功",
+        message: "修改角色" + body.name + "成功",
       };
     },
   },
@@ -204,9 +204,9 @@ export default defineMock([
     method: ["DELETE"],
     body({ params }) {
       return {
-        code: "00000",
+        code: 200,
         data: null,
-        msg: "删除角色" + params.id + "成功",
+        message: "删除角色" + params.id + "成功",
       };
     },
   },
@@ -216,14 +216,14 @@ export default defineMock([
     method: ["GET"],
     body: ({ params }) => {
       return {
-        code: "00000",
+        code: 200,
         data: [
           1, 2, 31, 32, 33, 88, 3, 70, 71, 72, 4, 73, 75, 74, 5, 76, 77, 78, 6,
           79, 81, 84, 85, 86, 87, 40, 41, 26, 30, 20, 21, 22, 23, 24, 89, 90,
           91, 36, 37, 38, 39, 93, 94, 95, 97, 102, 89, 90, 91, 93, 94, 95, 97,
           102, 103, 104,
         ],
-        msg: "一切ok",
+        message: "一切ok",
       };
     },
   },
@@ -232,9 +232,9 @@ export default defineMock([
     url: "roles/:id/menus",
     method: ["PUT"],
     body: {
-      code: "00000",
+      code: 200,
       data: null,
-      msg: "一切ok",
+      message: "一切ok",
     },
   },
 ]);

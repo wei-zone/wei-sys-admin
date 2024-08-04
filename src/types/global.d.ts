@@ -5,14 +5,14 @@ declare global {
   interface ResponseData<T = any> {
     code: string;
     data: T;
-    msg: string;
+    message: string;
   }
 
   /**
    * 分页查询参数
    */
   interface PageQuery {
-    pageNum: number;
+    pageCurrent: number;
     pageSize: number;
   }
 
