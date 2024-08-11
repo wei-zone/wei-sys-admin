@@ -294,22 +294,7 @@ const rules = reactive({
 /** 查询 */
 function handleQuery() {
     loading.value = true
-    const param: any = {
-        pageCurrent: queryParams.pageCurrent,
-        pageSize: queryParams.pageSize,
-        filter: {}
-    }
-    if (queryParams.startTime && queryParams.endTime) {
-        param.filter.startTime = queryParams.startTime
-        param.filter.endTime = queryParams.startTime
-    }
-    if (queryParams.keywords != null) {
-        param.filter.username = queryParams.keywords
-    }
-    if (queryParams.status != null) {
-        param.filter.status = queryParams.status
-    }
-    UserAPI.getPage(param)
+    UserAPI.getPage(queryParams)
         .then(data => {
             console.log('handleQuery', data)
             pageData.value = data.list
