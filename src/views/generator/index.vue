@@ -28,7 +28,7 @@
                 <el-table-column label="存储引擎" align="center" prop="engine" />
 
                 <el-table-column label="排序规则" align="center" prop="tableCollation" />
-                <el-table-column label="创建时间" align="center" prop="createTime" />
+                <el-table-column label="创建时间" align="center" prop="createdAt" />
 
                 <el-table-column fixed="right" label="操作" width="200">
                     <template #default="scope">

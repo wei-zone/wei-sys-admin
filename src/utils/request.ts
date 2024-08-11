@@ -56,7 +56,7 @@ service.interceptors.response.use(
                         location.reload()
                     })
             } else {
-                ElMessage.error(message || '系统出错')
+                ElMessage.error(message || error.message || '系统出错')
             }
         }
         return Promise.reject(error.message)

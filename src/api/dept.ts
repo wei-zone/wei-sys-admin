@@ -96,7 +96,7 @@ export interface DeptVO {
     /** 子部门 */
     children?: DeptVO[]
     /** 创建时间 */
-    createTime?: Date
+    createdAt?: Date
     /** 部门ID */
     id?: number
     /** 部门名称 */

@@ -23,8 +23,8 @@
 
                         <el-form-item label="状态" prop="status">
                             <el-select v-model="queryParams.status" placeholder="全部" clearable class="!w-[100px]">
-                                <el-option label="启用" value="1" />
-                                <el-option label="禁用" value="0" />
+                                <el-option label="启用" :value="1" />
+                                <el-option label="禁用" :value="0" />
                             </el-select>
                         </el-form-item>
 
@@ -103,7 +103,7 @@
                                 </el-tag>
                             </template>
                         </el-table-column>
-                        <el-table-column label="创建时间" align="center" prop="createTime" width="180" />
+                        <el-table-column label="创建时间" align="center" prop="createdAt" width="180" />
                         <el-table-column label="操作" fixed="right" width="220">
                             <template #default="scope">
                                 <el-button
@@ -294,7 +294,22 @@ const rules = reactive({
 /** 查询 */
 function handleQuery() {
     loading.value = true
-    UserAPI.getPage(queryParams)
+    const param: any = {
+        pageCurrent: queryParams.pageCurrent,
+        pageSize: queryParams.pageSize,
+        filter: {}
+    }
+    if (queryParams.startTime && queryParams.endTime) {
+        param.filter.startTime = queryParams.startTime
+        param.filter.endTime = queryParams.startTime
+    }
+    if (queryParams.keywords != null) {
+        param.filter.username = queryParams.keywords
+    }
+    if (queryParams.status != null) {
+        param.filter.status = queryParams.status
+    }
+    UserAPI.getPage(param)
         .then(data => {
             console.log('handleQuery', data)
             pageData.value = data.list

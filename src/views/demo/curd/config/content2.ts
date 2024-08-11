@@ -24,7 +24,7 @@ const contentConfig: IContentConfig = {
                     status: 1,
                     status2: 1,
                     sort: 99,
-                    createTime: 1715647982437
+                    createdAt: 1715647982437
                 },
                 {
                     id: 2,
@@ -38,7 +38,7 @@ const contentConfig: IContentConfig = {
                     status: 0,
                     status2: 0,
                     sort: 0,
-                    createTime: 1715648977426
+                    createdAt: 1715648977426
                 }
             ]
         })
@@ -109,7 +109,7 @@ const contentConfig: IContentConfig = {
         {
             label: '日期格式化',
             align: 'center',
-            prop: 'createTime',
+            prop: 'createdAt',
             minWidth: 120,
             templet: 'date',
             dateFormat: 'YYYY/MM/DD HH:mm:ss'

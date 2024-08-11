@@ -13,7 +13,7 @@ interface IUser {
     status: number
     deptName: string
     roleNames: string
-    createTime: string
+    createdAt: string
 }
 const selectedUser = ref<IUser>()
 function handleConfirm(data: IUser[]) {

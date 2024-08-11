@@ -2,8 +2,8 @@ import { defineMock } from './base'
 
 export default defineMock([
     {
-        url: 'users/page',
-        method: ['GET'],
+        url: 'user/page',
+        method: ['POST'],
         body: {
             code: 200,
             data: {
@@ -35,13 +35,13 @@ export default defineMock([
                 ],
                 total: 2
             },
-            message: '一切ok'
+            message: 'success'
         }
     },
 
     // 新增用户
     {
-        url: 'users',
+        url: 'user',
         method: ['POST'],
         body({ body }) {
             return {
@@ -54,19 +54,19 @@ export default defineMock([
 
     // 获取用户表单数据
     {
-        url: 'users/:userId/form',
+        url: 'user/:userId/form',
         method: ['GET'],
         body: ({ params }) => {
             return {
                 code: 200,
                 data: userMap[params.userId],
-                message: '一切ok'
+                message: 'success'
             }
         }
     },
     // 修改用户
     {
-        url: 'users/:userId',
+        url: 'user/:userId',
         method: ['PUT'],
         body({ body }) {
             return {
@@ -79,7 +79,7 @@ export default defineMock([
 
     // 删除用户
     {
-        url: 'users/:userId',
+        url: 'user/:userId',
         method: ['DELETE'],
         body({ params }) {
             return {
@@ -92,7 +92,7 @@ export default defineMock([
 
     // 重置密码
     {
-        url: 'users/:userId/password',
+        url: 'user/:userId/password',
         method: ['PATCH'],
         body({ query }) {
             return {
@@ -105,7 +105,7 @@ export default defineMock([
 
     // 导出Excel
     {
-        url: 'users/_export',
+        url: 'user/_export',
         method: ['GET'],
         headers: {
             'Content-Disposition': 'attachment; filename=%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8.xlsx',

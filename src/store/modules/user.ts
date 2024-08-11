@@ -1,5 +1,5 @@
 import AuthAPI, { LoginData } from '@/api/auth'
-import UserAPI, { UserInfo } from '@/api/user'
+import { UserInfo } from '@/api/user'
 import { resetRouter } from '@/router'
 import { store } from '@/store'
 
@@ -32,7 +32,7 @@ export const useUserStore = defineStore('user', () => {
     }
 
     // 获取信息(用户昵称、头像、角色集合、权限集合)
-    function getUserInfo() {
+    function getUserInfo(): Promise<any> {
         return new Promise<UserInfo>((resolve, reject) => {
             AuthAPI.getInfo()
                 .then(data => {

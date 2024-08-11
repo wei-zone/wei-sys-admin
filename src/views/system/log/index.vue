@@ -26,7 +26,7 @@
 
         <el-card shadow="never">
             <el-table v-loading="loading" :data="pageData" highlight-current-row border>
-                <el-table-column label="操作时间" prop="createTime" width="180" />
+                <el-table-column label="操作时间" prop="createdAt" width="180" />
                 <el-table-column label="操作人" prop="operator" width="120" />
                 <el-table-column label="日志模块" prop="module" width="100" />
                 <el-table-column label="日志内容" prop="content" min-width="200" />

@@ -36,8 +36,8 @@ export function setupPermission() {
                 } else {
                     const permissionStore = usePermissionStore()
                     try {
-                        await userStore.getUserInfo()
-                        const dynamicRoutes = await permissionStore.generateRoutes()
+                        const { routes } = await userStore.getUserInfo()
+                        const dynamicRoutes = await permissionStore.generateRoutes(routes)
                         dynamicRoutes.forEach((route: RouteRecordRaw) => router.addRoute(route))
                         next({ ...to, replace: true })
                     } catch (error) {

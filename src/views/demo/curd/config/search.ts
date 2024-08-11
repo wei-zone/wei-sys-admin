@@ -56,7 +56,7 @@ const searchConfig: ISearchConfig = {
         {
             type: 'date-picker',
             label: '创建时间',
-            prop: 'createAt',
+            prop: 'createdAt',
             attrs: {
                 type: 'daterange',
                 'range-separator': '~',

@@ -22,7 +22,7 @@ export default defineMock([
                     ]
                 }
             ],
-            message: '一切ok'
+            message: 'success'
         }
     },
 
@@ -48,7 +48,7 @@ export default defineMock([
                             sort: 1,
                             status: 1,
                             children: [],
-                            createTime: null,
+                            createdAt: null,
                             updateTime: '2022-04-19 12:46'
                         },
                         {
@@ -59,15 +59,15 @@ export default defineMock([
                             sort: 1,
                             status: 1,
                             children: [],
-                            createTime: null,
+                            createdAt: null,
                             updateTime: '2022-04-19 12:46'
                         }
                     ],
-                    createTime: null,
+                    createdAt: null,
                     updateTime: null
                 }
             ],
-            message: '一切ok'
+            message: 'success'
         }
     },
 
@@ -92,7 +92,7 @@ export default defineMock([
             return {
                 code: 200,
                 data: deptMap[params.id],
-                message: '一切ok'
+                message: 'success'
             }
         }
     },

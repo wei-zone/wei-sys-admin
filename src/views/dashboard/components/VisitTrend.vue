@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import * as echarts from 'echarts'
-import StatsAPI, { VisitTrendVO, VisitTrendQuery } from '@/api/log'
+import StatsAPI, { VisitTrendVO, VisitTrendQuery } from '@/api/stats'
 
 const dataRange = ref(1)
 const chart: Ref<echarts.ECharts | null> = ref(null)

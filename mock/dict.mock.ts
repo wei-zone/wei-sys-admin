@@ -29,7 +29,7 @@ export default defineMock([
             return {
                 code: 200,
                 data: list,
-                message: '一切ok'
+                message: 'success'
             }
         }
     },
@@ -73,7 +73,7 @@ export default defineMock([
                 ],
                 total: 1
             },
-            message: '一切ok'
+            message: 'success'
         }
     },
 
@@ -98,7 +98,7 @@ export default defineMock([
             return {
                 code: 200,
                 data: dictMap[params.id],
-                message: '一切ok'
+                message: 'success'
             }
         }
     },
@@ -163,6 +163,6 @@ const dictMap: Record<string, any> = {
                 }
             ]
         },
-        message: '一切ok'
+        message: 'success'
     }
 }

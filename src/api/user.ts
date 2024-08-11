@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-const USER_BASE_URL = '/v1/admin/users'
+const USER_BASE_URL = '/v1/admin/user'
 
 class UserAPI {
     /**
@@ -10,9 +10,9 @@ class UserAPI {
      */
     static getPage(queryParams: UserPageQuery) {
         return request<any, PageResult<UserPageVO[]>>({
-            url: `${USER_BASE_URL}/page`,
-            method: 'get',
-            params: queryParams
+            url: `${USER_BASE_URL}`,
+            method: 'post',
+            data: queryParams
         })
     }
 
@@ -174,7 +174,7 @@ export interface UserPageVO {
     /** 用户头像URL */
     avatar?: string
     /** 创建时间 */
-    createTime?: Date
+    createdAt?: Date
     /** 部门名称 */
     deptName?: string
     /** 用户邮箱 */

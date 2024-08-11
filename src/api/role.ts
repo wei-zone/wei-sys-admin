@@ -117,7 +117,7 @@ export interface RolePageVO {
     /** 角色状态 */
     status?: number
     /** 创建时间 */
-    createTime?: Date
+    createdAt?: Date
     /** 修改时间 */
     updateTime?: Date
 }

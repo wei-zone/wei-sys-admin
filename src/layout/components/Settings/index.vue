@@ -27,6 +27,15 @@
             <span class="text-xs">{{ $t('settings.sidebarLogo') }}</span>
             <el-switch v-model="settingsStore.sidebarLogo" />
         </div>
+
+        <div class="setting-item">
+            <span class="text-xs">{{ $t('settings.watermark') }}</span>
+            <el-switch v-model="settingsStore.watermarkEnabled" />
+        </div>
+
+        <el-divider>{{ $t('settings.navigation') }}</el-divider>
+
+        <LayoutSelect v-model="settingsStore.layout" @update:model-value="changeLayout" />
     </el-drawer>
 </template>
 

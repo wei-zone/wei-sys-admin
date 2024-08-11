@@ -5,6 +5,59 @@
             <div class="nav-action-item" @click="toggle">
                 <svg-icon :icon-class="isFullscreen ? 'fullscreen-exit' : 'fullscreen'" />
             </div>
+
+            <!-- 布局大小 -->
+            <el-tooltip :content="$t('sizeSelect.tooltip')" effect="dark" placement="bottom">
+                <size-select class="nav-action-item" />
+            </el-tooltip>
+
+            <!-- 语言选择 -->
+            <lang-select class="nav-action-item" />
+
+            <!-- 消息通知 -->
+            <el-dropdown class="message nav-action-item" trigger="click">
+                <el-badge is-dot>
+                    <div class="flex-center h100% p10px">
+                        <i-ep-bell />
+                    </div>
+                </el-badge>
+                <template #dropdown>
+                    <div class="px-5 py-2">
+                        <el-tabs v-model="activeTab">
+                            <el-tab-pane
+                                v-for="(label, key) in MessageTypeLabels"
+                                :key="key"
+                                :label="label"
+                                :name="key"
+                            >
+                                <div
+                                    v-for="message in getFilteredMessages(key)"
+                                    :key="message.id"
+                                    class="w-[380px] py-2"
+                                >
+                                    <el-link type="primary">
+                                        <el-text class="w-350px" size="default" truncated>
+                                            {{ message.title }}
+                                        </el-text>
+                                    </el-link>
+                                </div>
+                            </el-tab-pane>
+                        </el-tabs>
+                        <el-divider />
+                        <div class="flex-x-between">
+                            <el-link type="primary" :underline="false">
+                                <span class="text-xs">查看更多</span>
+                                <el-icon class="text-xs">
+                                    <ArrowRight />
+                                </el-icon>
+                            </el-link>
+                            <el-link type="primary" :underline="false">
+                                <span class="text-xs">全部已读</span>
+                            </el-link>
+                        </div>
+                    </div>
+                </template>
+            </el-dropdown>
         </template>
 
         <!-- 用户头像 -->
@@ -18,6 +71,11 @@
             </div>
             <template #dropdown>
                 <el-dropdown-menu>
+                    <a target="_blank" href="https://gitee.com/youlaiorg/vue3-element-admin">
+                        <el-dropdown-item>
+                            {{ $t('navbar.gitee') }}
+                        </el-dropdown-item>
+                    </a>
                     <a target="_blank" href="https://juejin.cn/post/7228990409909108793">
                         <el-dropdown-item>
                             {{ $t('navbar.document') }}

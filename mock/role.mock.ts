@@ -52,7 +52,7 @@ export default defineMock([
                     label: '访问游客'
                 }
             ],
-            message: '一切ok'
+            message: 'success'
         }
     },
 
@@ -69,7 +69,7 @@ export default defineMock([
                         code: 'ADMIN',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: null
                     },
                     {
@@ -78,7 +78,7 @@ export default defineMock([
                         code: 'GUEST',
                         status: 1,
                         sort: 3,
-                        createTime: '2021-05-26 15:49:05',
+                        createdAt: '2021-05-26 15:49:05',
                         updateTime: '2019-05-05 16:00:00'
                     },
                     {
@@ -87,7 +87,7 @@ export default defineMock([
                         code: 'ADMIN1',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: null
                     },
                     {
@@ -96,7 +96,7 @@ export default defineMock([
                         code: 'ADMIN2',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: null
                     },
                     {
@@ -105,7 +105,7 @@ export default defineMock([
                         code: 'ADMIN3',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: null
                     },
                     {
@@ -114,7 +114,7 @@ export default defineMock([
                         code: 'ADMIN4',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: null
                     },
                     {
@@ -123,7 +123,7 @@ export default defineMock([
                         code: 'ADMIN5',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: null
                     },
                     {
@@ -132,7 +132,7 @@ export default defineMock([
                         code: 'ADMIN6',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: '2023-12-04 11:43:15'
                     },
                     {
@@ -141,7 +141,7 @@ export default defineMock([
                         code: 'ADMIN7',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: null
                     },
                     {
@@ -150,13 +150,13 @@ export default defineMock([
                         code: 'ADMIN8',
                         status: 1,
                         sort: 2,
-                        createTime: '2021-03-25 12:39:54',
+                        createdAt: '2021-03-25 12:39:54',
                         updateTime: null
                     }
                 ],
                 total: 10
             },
-            message: '一切ok'
+            message: 'success'
         }
     },
 
@@ -181,7 +181,7 @@ export default defineMock([
             return {
                 code: 200,
                 data: roleMap[params.id],
-                message: '一切ok'
+                message: 'success'
             }
         }
     },
@@ -222,7 +222,7 @@ export default defineMock([
                     41, 26, 30, 20, 21, 22, 23, 24, 89, 90, 91, 36, 37, 38, 39, 93, 94, 95, 97, 102, 89, 90, 91, 93, 94,
                     95, 97, 102, 103, 104
                 ],
-                message: '一切ok'
+                message: 'success'
             }
         }
     },
@@ -233,7 +233,7 @@ export default defineMock([
         body: {
             code: 200,
             data: null,
-            message: '一切ok'
+            message: 'success'
         }
     }
 ])
@@ -246,7 +246,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: null
     },
     3: {
@@ -255,7 +255,7 @@ const roleMap: Record<string, any> = {
         code: 'GUEST',
         status: 1,
         sort: 3,
-        createTime: '2021-05-26 15:49:05',
+        createdAt: '2021-05-26 15:49:05',
         updateTime: '2019-05-05 16:00:00'
     },
     4: {
@@ -264,7 +264,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN1',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: null
     },
     5: {
@@ -273,7 +273,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN2',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: null
     },
 
@@ -283,7 +283,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN3',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: null
     },
     7: {
@@ -292,7 +292,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN4',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: null
     },
     8: {
@@ -301,7 +301,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN5',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: null
     },
     9: {
@@ -310,7 +310,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN6',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: '2023-12-04 11:43:15'
     },
     10: {
@@ -319,7 +319,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN7',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: null
     },
     11: {
@@ -328,7 +328,7 @@ const roleMap: Record<string, any> = {
         code: 'ADMIN8',
         status: 1,
         sort: 2,
-        createTime: '2021-03-25 12:39:54',
+        createdAt: '2021-03-25 12:39:54',
         updateTime: null
     }
 }

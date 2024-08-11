@@ -35,26 +35,6 @@
 
         <!-- 数据卡片 -->
         <el-row :gutter="10" class="mt-5">
-            <el-col :xs="24" :sm="12" :lg="6">
-                <el-card shadow="never">
-                    <template #header>
-                        <div class="flex-x-between">
-                            <span class="text-[var(--el-text-color-secondary)]">在线用户</span>
-                            <el-tag type="success" size="small">-</el-tag>
-                        </div>
-                    </template>
-
-                    <div class="flex-x-between mt-2">
-                        <span class="text-lg">1</span>
-                        <svg-icon icon-class="user" size="2em" />
-                    </div>
-                    <div class="flex-x-between mt-2 text-sm text-[var(--el-text-color-secondary)]">
-                        <span>总用户数</span>
-                        <span>5</span>
-                    </div>
-                </el-card>
-            </el-col>
-
             <el-col v-for="(item, index) in visitStatsList" :key="index" :xs="24" :sm="12" :lg="6">
                 <el-skeleton :loading="visitStatsLoading" :rows="5" animated>
                     <template #template>
@@ -83,29 +63,16 @@
                                     <span class="text-[var(--el-text-color-secondary)]">
                                         {{ item.title }}
                                     </span>
-                                    <el-tag :type="item.tagType" size="small">
-                                        {{ item.granularity }}
-                                    </el-tag>
                                 </div>
                             </template>
 
                             <div class="flex-x-between mt-2">
                                 <div class="flex-y-center">
                                     <span class="text-lg">
-                                        {{ item.todayCount }}
-                                    </span>
-                                    <span :class="['text-xs', 'ml-2', getGrowthRateClass(item.growthRate)]">
-                                        <i-ep-top v-if="item.growthRate > 0" />
-                                        <i-ep-bottom v-else-if="item.growthRate < 0" />
-                                        {{ formatGrowthRate(item.growthRate) }}
+                                        {{ item.totalCount }}
                                     </span>
                                 </div>
                                 <svg-icon :icon-class="item.icon" size="2em" />
-                            </div>
-
-                            <div class="flex-x-between mt-2 text-sm text-[var(--el-text-color-secondary)]">
-                                <span>总{{ item.title }}</span>
-                                <span>{{ item.totalCount }}</span>
                             </div>
                         </el-card>
                     </template>
@@ -114,41 +81,9 @@
         </el-row>
 
         <el-row :gutter="10" class="mt-5">
-            <el-col :xs="24" :span="16">
+            <el-col :xs="24" :span="24">
                 <!-- 访问趋势统计图 -->
                 <VisitTrend id="VisitTrend" width="100%" height="400px" />
-            </el-col>
-            <el-col :xs="24" :span="8">
-                <el-card>
-                    <template #header>
-                        <div class="flex-x-between">
-                            <div class="flex-y-center">
-                                通知公告
-                                <el-icon class="ml-1"><Notification /></el-icon>
-                            </div>
-                            <el-link type="primary">
-                                <span class="text-xs">查看更多</span>
-                                <el-icon class="text-xs">
-                                    <ArrowRight />
-                                </el-icon>
-                            </el-link>
-                        </div>
-                    </template>
-
-                    <el-scrollbar height="400px">
-                        <div v-for="(item, index) in notices" :key="index" class="flex-y-center py-3">
-                            <el-tag :type="getNoticeLevelTag(item.level)" size="small">
-                                {{ getNoticeLabel(item.type) }}
-                            </el-tag>
-                            <el-text truncated class="!mx-2 flex-1 !text-xs !text-[var(--el-text-color-secondary)]">
-                                {{ item.title }}
-                            </el-text>
-                            <el-link>
-                                <el-icon class="text-sm"><View /></el-icon>
-                            </el-link>
-                        </div>
-                    </el-scrollbar>
-                </el-card>
             </el-col>
         </el-row>
     </div>
@@ -163,7 +98,7 @@ defineOptions({
 import { useUserStore } from '@/store/modules/user'
 import { NoticeTypeEnum, getNoticeLabel } from '@/enums/NoticeTypeEnum'
 
-import StatsAPI, { VisitStatsVO } from '@/api/log'
+import StatsAPI, { VisitStatsVO } from '@/api/stats'
 const userStore = useUserStore()
 
 const date: Date = new Date()
@@ -264,6 +199,8 @@ const getGrowthRateClass = (growthRate: number): string => {
 /** 获取访问统计图标 */
 const getVisitStatsIcon = (type: string) => {
     switch (type) {
+        case 'user':
+            return 'user'
         case 'pv':
             return 'pv'
         case 'uv':

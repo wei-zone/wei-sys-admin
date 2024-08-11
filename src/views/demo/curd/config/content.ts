@@ -16,13 +16,13 @@ const contentConfig: IContentConfig<UserPageQuery> = {
         pageSizes: [10, 20, 30, 50]
     },
     indexAction: function (params) {
-        if ('createAt' in params) {
-            const createAt = params.createAt as string[]
-            if (createAt?.length > 1) {
-                params.startTime = createAt[0]
-                params.endTime = createAt[1]
+        if ('createdAt' in params) {
+            const createdAt = params.createdAt as string[]
+            if (createdAt?.length > 1) {
+                params.startTime = createdAt[0]
+                params.endTime = createdAt[1]
             }
-            delete params.createAt
+            delete params.createdAt
         }
         return UserAPI.getPage(params)
     },
@@ -97,7 +97,7 @@ const contentConfig: IContentConfig<UserPageQuery> = {
             templet: 'custom',
             slotName: 'status'
         },
-        { label: '创建时间', align: 'center', prop: 'createTime', width: 180 },
+        { label: '创建时间', align: 'center', prop: 'createdAt', width: 180 },
         {
             label: '操作',
             align: 'center',

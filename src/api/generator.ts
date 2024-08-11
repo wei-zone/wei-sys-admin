@@ -81,7 +81,7 @@ export interface TablePageVO {
     tableCollation: string
 
     /** 创建时间 */
-    createTime: string
+    createdAt: string
 }
 
 /** 代码生成配置表单 */

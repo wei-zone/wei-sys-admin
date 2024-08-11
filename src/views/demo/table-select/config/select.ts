@@ -68,7 +68,7 @@ const selectConfig: ISelectConfig = {
         {
             type: 'date-picker',
             label: '创建时间',
-            prop: 'createAt',
+            prop: 'createdAt',
             attrs: {
                 type: 'daterange',
                 'range-separator': '~',
@@ -82,13 +82,13 @@ const selectConfig: ISelectConfig = {
         }
     ],
     indexAction: function (params) {
-        if ('createAt' in params) {
-            const createAt = params.createAt as string[]
-            if (createAt?.length > 1) {
-                params.startTime = createAt[0]
-                params.endTime = createAt[1]
+        if ('createdAt' in params) {
+            const createdAt = params.createdAt as string[]
+            if (createdAt?.length > 1) {
+                params.startTime = createdAt[0]
+                params.endTime = createdAt[1]
             }
-            delete params.createAt
+            delete params.createdAt
         }
         return UserAPI.getPage(params)
     },
@@ -107,7 +107,7 @@ const selectConfig: ISelectConfig = {
             templet: 'custom',
             slotName: 'status'
         },
-        { label: '创建时间', align: 'center', prop: 'createTime', width: 180 }
+        { label: '创建时间', align: 'center', prop: 'createdAt', width: 180 }
     ]
 }
 
