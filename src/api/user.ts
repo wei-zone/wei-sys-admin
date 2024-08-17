@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-const USER_BASE_URL = '/v1/admin/user'
+const USER_BASE_URL = '/v1/admin/users'
 
 class UserAPI {
     /**
@@ -8,11 +8,11 @@ class UserAPI {
      *
      * @param queryParams 查询参数
      */
-    static getPage(queryParams: UserPageQuery) {
+    static getPage(data: UserPageQuery) {
         return request<any, PageResult<UserPageVO[]>>({
             url: `${USER_BASE_URL}`,
             method: 'post',
-            data: queryParams
+            data: data
         })
     }
 
@@ -24,7 +24,7 @@ class UserAPI {
      */
     static getFormData(userId: number) {
         return request<any, UserForm>({
-            url: `${USER_BASE_URL}/${userId}/form`,
+            url: `${USER_BASE_URL}/${userId}`,
             method: 'get'
         })
     }
@@ -51,7 +51,7 @@ class UserAPI {
     static update(id: number, data: UserForm) {
         return request({
             url: `${USER_BASE_URL}/${id}`,
-            method: 'put',
+            method: 'post',
             data: data
         })
     }
@@ -65,7 +65,7 @@ class UserAPI {
     static updatePassword(id: number, password: string) {
         return request({
             url: `${USER_BASE_URL}/${id}/password`,
-            method: 'patch',
+            method: 'post',
             params: { password: password }
         })
     }

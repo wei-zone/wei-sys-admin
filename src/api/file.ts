@@ -1,10 +1,11 @@
 import request from '@/utils/request'
+const FILE_BASE_URL = '/v1/common/upload/cos'
 
 class FileAPI {
     /**
      * 文件上传地址
      */
-    static uploadUrl = import.meta.env.VITE_APP_BASE_API + '/v1/admin/files'
+    static uploadUrl = import.meta.env.VITE_APP_BASE_API + '/v1/common/upload/cos'
 
     /**
      * 上传文件
@@ -15,7 +16,7 @@ class FileAPI {
         const formData = new FormData()
         formData.append('file', file)
         return request<any, FileInfo>({
-            url: '/v1/files',
+            url: `${FILE_BASE_URL}`,
             method: 'post',
             data: formData,
             headers: {

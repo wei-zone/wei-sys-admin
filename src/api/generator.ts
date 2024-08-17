@@ -6,11 +6,11 @@ const GENERATOR_BASE_URL = '/v1/admin/generator'
 
 class GeneratorAPI {
     /** 获取数据表分页列表 */
-    static getTablePage(params: TablePageQuery) {
+    static getTablePage(data: TablePageQuery) {
         return request<any, PageResult<TablePageVO[]>>({
-            url: `${GENERATOR_BASE_URL}/table/page`,
-            method: 'get',
-            params: params
+            url: `${GENERATOR_BASE_URL}/table`,
+            method: 'post',
+            data: data
         })
     }
 

@@ -6,13 +6,13 @@ class LogAPI {
     /**
      * 获取日志分页列表
      *
-     * @param queryParams 查询参数
+     * @param data 查询参数
      */
-    static getPage(queryParams: LogPageQuery) {
+    static getPage(data: LogPageQuery) {
         return request<any, PageResult<LogPageVO[]>>({
-            url: `${LOG_BASE_URL}/page`,
-            method: 'get',
-            params: queryParams
+            url: `${LOG_BASE_URL}`,
+            method: 'post',
+            data: data
         })
     }
 }

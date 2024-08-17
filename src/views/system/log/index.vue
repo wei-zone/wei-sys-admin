@@ -28,15 +28,17 @@
             <el-table v-loading="loading" :data="pageData" highlight-current-row border>
                 <el-table-column label="操作时间" prop="createdAt" width="180" />
                 <el-table-column label="操作人" prop="operator" width="120" />
-                <el-table-column label="日志模块" prop="module" width="100" />
+                <el-table-column label="日志模块" prop="module" width="120" />
                 <el-table-column label="日志内容" prop="content" min-width="200" />
+                <el-table-column label="请求路径" prop="requestUri" width="200" />
                 <el-table-column label="IP 地址" prop="ip" width="150" />
-                <el-table-column label="地区" prop="region" width="150" />
-                <el-table-column label="浏览器" prop="browser" width="150" />
-                <el-table-column label="终端系统" prop="os" width="200" show-overflow-tooltip />
-                <el-table-column label="执行时间(ms)" prop="executionTime" width="150" />
+                <el-table-column label="地区" prop="city" width="120" />
+                <el-table-column label="浏览器" prop="browser" width="120" />
+                <el-table-column label="终端系统" prop="os" width="120" show-overflow-tooltip />
+                <el-table-column label="状态" prop="status" width="120" show-overflow-tooltip />
+                <el-table-column label="消息" prop="message" width="200" show-overflow-tooltip />
+                <el-table-column label="执行时间(ms)" prop="executionTime" width="120" />
             </el-table>
-            pageCurrent
             <pagination
                 v-if="total > 0"
                 v-model:total="total"

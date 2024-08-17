@@ -382,6 +382,7 @@ function handleQuery() {
     loading.value = true
     MenuAPI.getList(queryParams)
         .then(data => {
+            console.log(data)
             menuTableData.value = data
         })
         .finally(() => {

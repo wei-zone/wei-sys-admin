@@ -1,26 +1,31 @@
 import request from '@/utils/request'
 
-const DEPT_BASE_URL = '/v1/admin/dept'
+const DEPT_BASE_URL = '/v1/admin/depts'
 
 class DeptAPI {
     /**
      * 获取部门列表
      *
-     * @param queryParams 查询参数（可选）
+     * @param data 查询参数（可选）
      * @returns 部门树形表格数据
      */
-    static getList(queryParams?: DeptQuery) {
-        return request<any, DeptVO[]>({
+    static getList(data?: DeptQuery) {
+        return request<
+            any,
+            {
+                list: DeptVO[]
+            }
+        >({
             url: `${DEPT_BASE_URL}`,
-            method: 'get',
-            params: queryParams
+            method: 'post',
+            data: data
         })
     }
 
     /** 获取部门下拉列表 */
     static getOptions() {
-        return request<any, OptionType[]>({
-            url: `${DEPT_BASE_URL}/options`,
+        return request<any, {}>({
+            url: `${DEPT_BASE_URL}`,
             method: 'get'
         })
     }
@@ -33,7 +38,7 @@ class DeptAPI {
      */
     static getFormData(id: number) {
         return request<any, DeptForm>({
-            url: `${DEPT_BASE_URL}/${id}/form`,
+            url: `${DEPT_BASE_URL}/${id}`,
             method: 'get'
         })
     }
@@ -46,7 +51,7 @@ class DeptAPI {
      */
     static add(data: DeptForm) {
         return request({
-            url: `${DEPT_BASE_URL}`,
+            url: `${DEPT_BASE_URL}/create`,
             method: 'post',
             data: data
         })
@@ -62,7 +67,7 @@ class DeptAPI {
     static update(id: number, data: DeptForm) {
         return request({
             url: `${DEPT_BASE_URL}/${id}`,
-            method: 'put',
+            method: 'post',
             data: data
         })
     }

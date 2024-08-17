@@ -2,7 +2,7 @@ import { defineMock } from './base'
 
 export default defineMock([
     {
-        url: 'dict/:code/options',
+        url: 'dicts/:code/options',
         method: ['GET'],
         body: ({ params }) => {
             const code = params.code
@@ -35,7 +35,7 @@ export default defineMock([
     },
 
     {
-        url: 'dict/page',
+        url: 'dicts/page',
         method: ['GET'],
         body: {
             code: 200,
@@ -92,7 +92,7 @@ export default defineMock([
 
     // 获取字典表单数据
     {
-        url: 'dict/:id/form',
+        url: 'dicts/:id/form',
         method: ['GET'],
         body: ({ params }) => {
             return {
@@ -105,7 +105,7 @@ export default defineMock([
 
     // 修改字典
     {
-        url: 'dict/:id',
+        url: 'dicts/:id',
         method: ['PUT'],
         body({ body }) {
             return {
@@ -118,7 +118,7 @@ export default defineMock([
 
     // 删除字典
     {
-        url: 'dict/:id',
+        url: 'dicts/:id',
         method: ['DELETE'],
         body({ params }) {
             return {

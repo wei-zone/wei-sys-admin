@@ -239,6 +239,7 @@ function handleQuery() {
     loading.value = true
     RoleAPI.getPage(queryParams)
         .then(data => {
+            console.log(data)
             roleList.value = data.list
             total.value = data.total
         })

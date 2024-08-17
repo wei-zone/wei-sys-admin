@@ -125,8 +125,8 @@
                 </el-form-item>
                 <el-form-item label="部门状态">
                     <el-radio-group v-model="formData.status">
-                        <el-radio :label="1">正常</el-radio>
-                        <el-radio :label="0">禁用</el-radio>
+                        <el-radio :value="1">正常</el-radio>
+                        <el-radio :value="0">禁用</el-radio>
                     </el-radio-group>
                 </el-form-item>
             </el-form>
@@ -181,7 +181,8 @@ const rules = reactive({
 function handleQuery() {
     loading.value = true
     DeptAPI.getList(queryParams).then(data => {
-        deptList.value = data
+        console.log('handleQuery', data)
+        deptList.value = data?.list
         loading.value = false
     })
 }

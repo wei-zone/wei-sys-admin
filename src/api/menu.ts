@@ -4,30 +4,16 @@ const MENU_BASE_URL = '/v1/admin/menus'
 
 class MenuAPI {
     /**
-     * 获取当前用户的路由列表
-     * <p/>
-     * 无需传入角色，后端解析token获取角色自行判断是否拥有路由的权限
-     *
-     * @returns 路由列表
-     */
-    static getRoutes() {
-        return request<any, RouteVO[]>({
-            url: `${MENU_BASE_URL}/me`,
-            method: 'get'
-        })
-    }
-
-    /**
      * 获取菜单树形列表
      *
-     * @param queryParams 查询参数
+     * @param data 查询参数
      * @returns 菜单树形列表
      */
-    static getList(queryParams: MenuQuery) {
+    static getList(data: MenuQuery) {
         return request<any, MenuVO[]>({
             url: `${MENU_BASE_URL}`,
-            method: 'get',
-            params: queryParams
+            method: 'post',
+            data: data
         })
     }
 
@@ -38,7 +24,7 @@ class MenuAPI {
      */
     static getOptions() {
         return request<any, OptionType[]>({
-            url: `${MENU_BASE_URL}/options`,
+            url: `${MENU_BASE_URL}`,
             method: 'get'
         })
     }
@@ -50,7 +36,7 @@ class MenuAPI {
      */
     static getFormData(id: number) {
         return request<any, MenuForm>({
-            url: `${MENU_BASE_URL}/${id}/form`,
+            url: `${MENU_BASE_URL}/${id}`,
             method: 'get'
         })
     }
@@ -63,7 +49,7 @@ class MenuAPI {
      */
     static add(data: MenuForm) {
         return request({
-            url: `${MENU_BASE_URL}`,
+            url: `${MENU_BASE_URL}/create`,
             method: 'post',
             data: data
         })
@@ -79,7 +65,7 @@ class MenuAPI {
     static update(id: string, data: MenuForm) {
         return request({
             url: `${MENU_BASE_URL}/${id}`,
-            method: 'put',
+            method: 'post',
             data: data
         })
     }

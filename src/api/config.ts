@@ -4,11 +4,11 @@ const CONFIG_BASE_URL = '/v1/admin/config'
 
 class ConfigAPI {
     /** 获取系统配置分页数据 */
-    static getPage(queryParams?: ConfigPageQuery) {
+    static getPage(data?: ConfigPageQuery) {
         return request<any, PageResult<ConfigPageVO[]>>({
-            url: `${CONFIG_BASE_URL}/page`,
-            method: 'get',
-            params: queryParams
+            url: `${CONFIG_BASE_URL}`,
+            method: 'post',
+            data: data
         })
     }
     /**
@@ -19,7 +19,7 @@ class ConfigAPI {
      */
     static getFormData(id: number) {
         return request<any, ConfigForm>({
-            url: `${CONFIG_BASE_URL}/${id}/form`,
+            url: `${CONFIG_BASE_URL}/${id}`,
             method: 'get'
         })
     }
@@ -27,7 +27,7 @@ class ConfigAPI {
     /** 添加系统配置*/
     static add(data: ConfigForm) {
         return request({
-            url: `${CONFIG_BASE_URL}`,
+            url: `${CONFIG_BASE_URL}/create`,
             method: 'post',
             data: data
         })
@@ -42,7 +42,7 @@ class ConfigAPI {
     static update(id: number, data: ConfigForm) {
         return request({
             url: `${CONFIG_BASE_URL}/${id}`,
-            method: 'put',
+            method: 'post',
             data: data
         })
     }
@@ -61,8 +61,8 @@ class ConfigAPI {
 
     static refreshCache() {
         return request({
-            url: `${CONFIG_BASE_URL}`,
-            method: 'patch'
+            url: `${CONFIG_BASE_URL}/refresh`,
+            method: 'post'
         })
     }
 }

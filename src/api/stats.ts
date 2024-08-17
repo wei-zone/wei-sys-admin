@@ -11,7 +11,7 @@ class StatsAPI {
      */
     static getVisitTrend(queryParams: VisitTrendQuery) {
         return request<any, VisitTrendVO>({
-            url: `${STATS_BASE_URL}/visit-trend`,
+            url: `${STATS_BASE_URL}/trend`,
             method: 'get',
             params: queryParams
         })
@@ -25,7 +25,7 @@ class StatsAPI {
      */
     static getVisitStats() {
         return request<any, VisitStatsVO[]>({
-            url: `${STATS_BASE_URL}/visit-stats`,
+            url: `${STATS_BASE_URL}/visit`,
             method: 'get'
         })
     }

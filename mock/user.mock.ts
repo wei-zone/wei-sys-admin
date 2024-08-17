@@ -2,7 +2,7 @@ import { defineMock } from './base'
 
 export default defineMock([
     {
-        url: 'user/page',
+        url: 'users/page',
         method: ['POST'],
         body: {
             code: 200,
@@ -41,7 +41,7 @@ export default defineMock([
 
     // 新增用户
     {
-        url: 'user',
+        url: 'users',
         method: ['POST'],
         body({ body }) {
             return {
@@ -54,7 +54,7 @@ export default defineMock([
 
     // 获取用户表单数据
     {
-        url: 'user/:userId/form',
+        url: 'users/:userId/form',
         method: ['GET'],
         body: ({ params }) => {
             return {
@@ -66,7 +66,7 @@ export default defineMock([
     },
     // 修改用户
     {
-        url: 'user/:userId',
+        url: 'users/:userId',
         method: ['PUT'],
         body({ body }) {
             return {
@@ -79,7 +79,7 @@ export default defineMock([
 
     // 删除用户
     {
-        url: 'user/:userId',
+        url: 'users/:userId',
         method: ['DELETE'],
         body({ params }) {
             return {
@@ -92,7 +92,7 @@ export default defineMock([
 
     // 重置密码
     {
-        url: 'user/:userId/password',
+        url: 'users/:userId/password',
         method: ['PATCH'],
         body({ query }) {
             return {
@@ -105,7 +105,7 @@ export default defineMock([
 
     // 导出Excel
     {
-        url: 'user/_export',
+        url: 'users/_export',
         method: ['GET'],
         headers: {
             'Content-Disposition': 'attachment; filename=%E7%94%A8%E6%88%B7%E5%88%97%E8%A1%A8.xlsx',

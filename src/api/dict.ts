@@ -1,19 +1,19 @@
 import request from '@/utils/request'
 
-const DICT_BASE_URL = '/v1/admin/dict'
+const DICT_BASE_URL = '/v1/admin/dicts'
 
 class DictAPI {
     /**
      * 获取字典分页列表
      *
-     * @param queryParams 查询参数
+     * @param data 查询参数
      * @returns 字典分页结果
      */
-    static getPage(queryParams: DictPageQuery) {
+    static getPage(data: DictPageQuery) {
         return request<any, PageResult<DictPageVO[]>>({
-            url: `${DICT_BASE_URL}/page`,
-            method: 'get',
-            params: queryParams
+            url: `${DICT_BASE_URL}`,
+            method: 'post',
+            data: data
         })
     }
 
@@ -25,7 +25,7 @@ class DictAPI {
      */
     static getFormData(id: number) {
         return request<any, ResponseData<DictForm>>({
-            url: `${DICT_BASE_URL}/${id}/form`,
+            url: `${DICT_BASE_URL}/${id}`,
             method: 'get'
         })
     }
@@ -37,7 +37,7 @@ class DictAPI {
      */
     static add(data: DictForm) {
         return request({
-            url: `${DICT_BASE_URL}`,
+            url: `${DICT_BASE_URL}/create`,
             method: 'post',
             data: data
         })
@@ -52,7 +52,7 @@ class DictAPI {
     static update(id: number, data: DictForm) {
         return request({
             url: `${DICT_BASE_URL}/${id}`,
-            method: 'put',
+            method: 'post',
             data: data
         })
     }
@@ -76,7 +76,7 @@ class DictAPI {
      */
     static getList() {
         return request<any, OptionType[]>({
-            url: `${DICT_BASE_URL}/list`,
+            url: `${DICT_BASE_URL}`,
             method: 'get'
         })
     }

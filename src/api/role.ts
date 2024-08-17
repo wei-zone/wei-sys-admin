@@ -4,18 +4,18 @@ const ROLE_BASE_URL = '/v1/admin/roles'
 
 class RoleAPI {
     /** 获取角色分页数据 */
-    static getPage(queryParams?: RolePageQuery) {
+    static getPage(data?: RolePageQuery) {
         return request<any, PageResult<RolePageVO[]>>({
-            url: `${ROLE_BASE_URL}/page`,
-            method: 'get',
-            params: queryParams
+            url: `${ROLE_BASE_URL}`,
+            method: 'post',
+            data: data
         })
     }
 
     /** 获取角色下拉数据源 */
     static getOptions() {
         return request<any, OptionType[]>({
-            url: `${ROLE_BASE_URL}/options`,
+            url: `${ROLE_BASE_URL}`,
             method: 'get'
         })
     }
@@ -42,7 +42,7 @@ class RoleAPI {
     static updateRoleMenus(roleId: number, data: number[]) {
         return request({
             url: `${ROLE_BASE_URL}/${roleId}/menus`,
-            method: 'put',
+            method: 'post',
             data: data
         })
     }
@@ -55,7 +55,7 @@ class RoleAPI {
      */
     static getFormData(id: number) {
         return request<any, RoleForm>({
-            url: `${ROLE_BASE_URL}/${id}/form`,
+            url: `${ROLE_BASE_URL}/${id}`,
             method: 'get'
         })
     }
@@ -63,7 +63,7 @@ class RoleAPI {
     /** 添加角色 */
     static add(data: RoleForm) {
         return request({
-            url: `${ROLE_BASE_URL}`,
+            url: `${ROLE_BASE_URL}/create`,
             method: 'post',
             data: data
         })
@@ -78,7 +78,7 @@ class RoleAPI {
     static update(id: number, data: RoleForm) {
         return request({
             url: `${ROLE_BASE_URL}/${id}`,
-            method: 'put',
+            method: 'post',
             data: data
         })
     }

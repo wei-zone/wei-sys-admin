@@ -2,7 +2,7 @@ import { defineMock } from './base'
 
 export default defineMock([
     {
-        url: 'stats/visit-trend',
+        url: 'stats/trend',
         method: ['GET'],
         body: {
             code: 200,
@@ -26,7 +26,7 @@ export default defineMock([
     },
 
     {
-        url: 'stats/visit-stats',
+        url: 'stats/visit',
         method: ['GET'],
         body: {
             code: 200,
