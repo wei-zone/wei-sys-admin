@@ -1,12 +1,12 @@
 import request from '@/utils/request'
 
-const CONFIG_BASE_URL = '/v1/admin/config'
+const CONFIG_BASE_URL = '/v1/admin/configs'
 
 class ConfigAPI {
     /** 获取系统配置分页数据 */
     static getPage(data?: ConfigPageQuery) {
         return request<any, PageResult<ConfigPageVO[]>>({
-            url: `${CONFIG_BASE_URL}`,
+            url: `${CONFIG_BASE_URL}/pages`,
             method: 'post',
             data: data
         })
@@ -19,7 +19,7 @@ class ConfigAPI {
      */
     static getFormData(id: number) {
         return request<any, ConfigForm>({
-            url: `${CONFIG_BASE_URL}/${id}`,
+            url: `${CONFIG_BASE_URL}/${id}/form`,
             method: 'get'
         })
     }
@@ -42,7 +42,7 @@ class ConfigAPI {
     static update(id: number, data: ConfigForm) {
         return request({
             url: `${CONFIG_BASE_URL}/${id}`,
-            method: 'post',
+            method: 'put',
             data: data
         })
     }

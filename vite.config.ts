@@ -11,6 +11,9 @@ import IconsResolver from 'unplugin-icons/resolver'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import mockDevServerPlugin from 'vite-plugin-mock-dev-server'
 
+// 引入插件
+import VitePluginMetaEnv from 'vite-plugin-meta-env'
+
 import UnoCSS from 'unocss/vite'
 import { resolve } from 'path'
 import { name, version, engines, dependencies, devDependencies } from './package.json'
@@ -28,6 +31,14 @@ const pathSrc = resolve(__dirname, 'src')
 //  https://cn.vitejs.dev/config
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     const env = loadEnv(mode, process.cwd())
+
+    // 增加环境变量
+    const metaEnv = {
+        APP_VERSION: version,
+        APP_NAME: name,
+        APP_BUILD_TIME: new Date().toLocaleString()
+    }
+
     return {
         resolve: {
             alias: {
@@ -134,7 +145,10 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
                 iconDirs: [resolve(pathSrc, 'assets/icons')],
                 // 指定symbolId格式
                 symbolId: 'icon-[dir]-[name]'
-            })
+            }),
+            // 环境变量
+            VitePluginMetaEnv(metaEnv, 'import.meta.env'),
+            VitePluginMetaEnv(metaEnv, 'process.env')
             /* VueDevTools({
         openInEditorHost: `http://localhost:${env.VITE_APP_PORT}`,
       }), */

@@ -10,7 +10,7 @@ class UserAPI {
      */
     static getPage(data: UserPageQuery) {
         return request<any, PageResult<UserPageVO[]>>({
-            url: `${USER_BASE_URL}`,
+            url: `${USER_BASE_URL}/pages`,
             method: 'post',
             data: data
         })
@@ -24,7 +24,7 @@ class UserAPI {
      */
     static getFormData(userId: number) {
         return request<any, UserForm>({
-            url: `${USER_BASE_URL}/${userId}`,
+            url: `${USER_BASE_URL}/${userId}/form`,
             method: 'get'
         })
     }
@@ -51,7 +51,7 @@ class UserAPI {
     static update(id: number, data: UserForm) {
         return request({
             url: `${USER_BASE_URL}/${id}`,
-            method: 'post',
+            method: 'put',
             data: data
         })
     }

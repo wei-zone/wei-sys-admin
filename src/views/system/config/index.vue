@@ -30,10 +30,6 @@
                     <i-ep-plus />
                     新增
                 </el-button>
-                <el-button v-hasPerm="['sys:config:refresh']" color="#626aef" @click="handleRefreshCache">
-                    <el-icon><RefreshLeft /></el-icon>
-                    刷新缓存
-                </el-button>
             </template>
 
             <el-table

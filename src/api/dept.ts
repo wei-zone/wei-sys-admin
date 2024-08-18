@@ -16,7 +16,7 @@ class DeptAPI {
                 list: DeptVO[]
             }
         >({
-            url: `${DEPT_BASE_URL}`,
+            url: `${DEPT_BASE_URL}/pages`,
             method: 'post',
             data: data
         })
@@ -24,8 +24,8 @@ class DeptAPI {
 
     /** 获取部门下拉列表 */
     static getOptions() {
-        return request<any, {}>({
-            url: `${DEPT_BASE_URL}`,
+        return request<any, OptionType[]>({
+            url: `${DEPT_BASE_URL}/options`,
             method: 'get'
         })
     }
@@ -38,7 +38,7 @@ class DeptAPI {
      */
     static getFormData(id: number) {
         return request<any, DeptForm>({
-            url: `${DEPT_BASE_URL}/${id}`,
+            url: `${DEPT_BASE_URL}/${id}/form`,
             method: 'get'
         })
     }
@@ -67,7 +67,7 @@ class DeptAPI {
     static update(id: number, data: DeptForm) {
         return request({
             url: `${DEPT_BASE_URL}/${id}`,
-            method: 'post',
+            method: 'put',
             data: data
         })
     }

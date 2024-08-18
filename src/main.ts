@@ -11,6 +11,9 @@ import '@/styles/index.scss'
 import 'uno.css'
 import 'animate.css'
 import { InstallCodemirro } from 'codemirror-editor-vue3'
+import { appInfo } from './utils'
+
+appInfo()
 
 const app = createApp(App)
 // 注册插件

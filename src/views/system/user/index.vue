@@ -93,7 +93,7 @@
 
                         <el-table-column label="性别" width="100" align="center" prop="genderLabel" />
 
-                        <el-table-column label="部门" width="120" align="center" prop="deptName" />
+                        <el-table-column label="部门" width="120" align="center" prop="dept.name" />
                         <el-table-column label="手机号码" align="center" prop="mobile" width="120" />
 
                         <el-table-column label="状态" align="center" prop="status">

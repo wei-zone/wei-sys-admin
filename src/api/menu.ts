@@ -11,7 +11,7 @@ class MenuAPI {
      */
     static getList(data: MenuQuery) {
         return request<any, MenuVO[]>({
-            url: `${MENU_BASE_URL}`,
+            url: `${MENU_BASE_URL}/pages`,
             method: 'post',
             data: data
         })
@@ -24,7 +24,7 @@ class MenuAPI {
      */
     static getOptions() {
         return request<any, OptionType[]>({
-            url: `${MENU_BASE_URL}`,
+            url: `${MENU_BASE_URL}/options`,
             method: 'get'
         })
     }
@@ -36,7 +36,7 @@ class MenuAPI {
      */
     static getFormData(id: number) {
         return request<any, MenuForm>({
-            url: `${MENU_BASE_URL}/${id}`,
+            url: `${MENU_BASE_URL}/${id}/form`,
             method: 'get'
         })
     }
@@ -65,7 +65,7 @@ class MenuAPI {
     static update(id: string, data: MenuForm) {
         return request({
             url: `${MENU_BASE_URL}/${id}`,
-            method: 'post',
+            method: 'put',
             data: data
         })
     }

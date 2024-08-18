@@ -6,7 +6,7 @@ class RoleAPI {
     /** 获取角色分页数据 */
     static getPage(data?: RolePageQuery) {
         return request<any, PageResult<RolePageVO[]>>({
-            url: `${ROLE_BASE_URL}`,
+            url: `${ROLE_BASE_URL}/pages`,
             method: 'post',
             data: data
         })
@@ -15,7 +15,7 @@ class RoleAPI {
     /** 获取角色下拉数据源 */
     static getOptions() {
         return request<any, OptionType[]>({
-            url: `${ROLE_BASE_URL}`,
+            url: `${ROLE_BASE_URL}/options`,
             method: 'get'
         })
     }
@@ -55,7 +55,7 @@ class RoleAPI {
      */
     static getFormData(id: number) {
         return request<any, RoleForm>({
-            url: `${ROLE_BASE_URL}/${id}`,
+            url: `${ROLE_BASE_URL}/${id}/form`,
             method: 'get'
         })
     }
@@ -78,7 +78,7 @@ class RoleAPI {
     static update(id: number, data: RoleForm) {
         return request({
             url: `${ROLE_BASE_URL}/${id}`,
-            method: 'post',
+            method: 'put',
             data: data
         })
     }

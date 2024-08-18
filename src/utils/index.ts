@@ -39,3 +39,33 @@ export function isExternal(path: string) {
     const isExternal = /^(https?:|http?:|mailto:|tel:)/.test(path)
     return isExternal
 }
+
+export const appInfo = () => {
+    // app info
+    console.log(
+        `%c APP_VERSION %c ${import.meta.env.APP_NAME} %c`,
+        'background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;',
+        `background:#e6a23c; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;`,
+        'background:transparent'
+    )
+    console.log(
+        `%c APP_BUILD_TIME %c ${import.meta.env.APP_BUILD_TIME} %c`,
+        'background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;',
+        `background:#409eff; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;`,
+        'background:transparent'
+    )
+    console.log(
+        `%c APP_VERSION %c ${import.meta.env.APP_VERSION} %c`,
+        'background:#35495E; padding: 1px; border-radius: 3px 0 0 3px; color: #fff;',
+        `background:#67c23a; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff;`,
+        'background:transparent'
+    )
+    console.groupEnd()
+
+    // 线上版本判断
+    // const APP_VERSION = import.meta.env.APP_VERSION
+    // const onlineVersion = String(Math.random())
+    // if (APP_VERSION != onlineVersion) {
+    //     console.log('APP_VERSION', APP_VERSION)
+    // }
+}

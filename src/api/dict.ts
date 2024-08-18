@@ -11,7 +11,7 @@ class DictAPI {
      */
     static getPage(data: DictPageQuery) {
         return request<any, PageResult<DictPageVO[]>>({
-            url: `${DICT_BASE_URL}`,
+            url: `${DICT_BASE_URL}/pages`,
             method: 'post',
             data: data
         })
@@ -25,7 +25,7 @@ class DictAPI {
      */
     static getFormData(id: number) {
         return request<any, ResponseData<DictForm>>({
-            url: `${DICT_BASE_URL}/${id}`,
+            url: `${DICT_BASE_URL}/${id}/form`,
             method: 'get'
         })
     }
@@ -52,7 +52,7 @@ class DictAPI {
     static update(id: number, data: DictForm) {
         return request({
             url: `${DICT_BASE_URL}/${id}`,
-            method: 'post',
+            method: 'put',
             data: data
         })
     }
@@ -76,7 +76,7 @@ class DictAPI {
      */
     static getList() {
         return request<any, OptionType[]>({
-            url: `${DICT_BASE_URL}`,
+            url: `${DICT_BASE_URL}/options`,
             method: 'get'
         })
     }

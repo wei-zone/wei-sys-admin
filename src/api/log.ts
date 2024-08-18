@@ -10,7 +10,7 @@ class LogAPI {
      */
     static getPage(data: LogPageQuery) {
         return request<any, PageResult<LogPageVO[]>>({
-            url: `${LOG_BASE_URL}`,
+            url: `${LOG_BASE_URL}/pages`,
             method: 'post',
             data: data
         })
