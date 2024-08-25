@@ -58,8 +58,13 @@
                             :placeholder="$t('login.captchaCode')"
                             @keyup.enter="handleLoginSubmit"
                         />
-
-                        <el-image :src="captchaBase64" class="captcha-image" @click="getCaptcha" />
+                        <div
+                            v-html="captchaBase64"
+                            class="captcha-image"
+                            @click="getCaptcha"
+                            v-if="captchaBase64 !== false"
+                        ></div>
+                        <div class="captcha-image error" @click="getCaptcha" v-else>获取失败</div>
                     </div>
                 </el-form-item>
 
@@ -84,8 +89,7 @@
 
         <!-- ICP备案 -->
         <div v-show="icpVisible" class="icp-info">
-            <p>Copyright © 2021 - 2024 youlai.tech All Rights Reserved. 有来技术 版权所有</p>
-            <p>皖ICP备20006496号-3</p>
+            <p>Copyright © 2021 - 2024 wei.zone All Rights Reserved.</p>
         </div>
     </div>
 </template>
@@ -156,7 +160,7 @@ const loginRules = computed(() => {
         ],
         captchaCode: [
             {
-                required: true,
+                required: false,
                 trigger: 'blur',
                 message: t('login.message.captchaCode.required')
             }
@@ -166,10 +170,16 @@ const loginRules = computed(() => {
 
 /** 获取验证码 */
 function getCaptcha() {
-    AuthAPI.getCaptcha().then(data => {
-        loginData.value.captchaKey = data.captchaKey
-        captchaBase64.value = data.captchaBase64
-    })
+    AuthAPI.getCaptcha().then(
+        data => {
+            console.log(data)
+            loginData.value.captchaKey = data.captchaKey
+            captchaBase64.value = data.captchaBase64
+        },
+        () => {
+            captchaBase64.value = false
+        }
+    )
 }
 
 /** 登录表单提交 */

@@ -26,18 +26,18 @@
 
         <el-card shadow="never">
             <el-table v-loading="loading" :data="pageData" highlight-current-row border>
-                <el-table-column label="操作时间" prop="createdAt" width="180" />
-                <el-table-column label="操作人" prop="operator.username" width="120" />
-                <el-table-column label="日志模块" prop="module" width="120" />
-                <el-table-column label="日志内容" prop="content" min-width="200" />
-                <el-table-column label="请求路径" prop="requestUri" width="200" />
-                <el-table-column label="IP 地址" prop="ip" width="150" />
-                <el-table-column label="地区" prop="city" width="120" />
+                <el-table-column label="用户ID" prop="operator.id" width="120" />
+                <el-table-column label="用户名" prop="operator.username" width="120" />
+                <el-table-column label="模块" prop="module" width="120" />
+                <el-table-column label="请求地址" prop="requestUri" width="200" />
+                <el-table-column label="参数" prop="content" min-width="200" />
+                <el-table-column label="IP" prop="ip" width="150" />
                 <el-table-column label="浏览器" prop="browser" width="120" />
-                <el-table-column label="终端系统" prop="os" width="120" show-overflow-tooltip />
+                <el-table-column label="系统" prop="os" width="120" show-overflow-tooltip />
                 <el-table-column label="状态" prop="status" width="120" show-overflow-tooltip />
                 <el-table-column label="消息" prop="message" width="200" show-overflow-tooltip />
                 <el-table-column label="执行时间(ms)" prop="executionTime" width="120" />
+                <el-table-column label="请求时间" prop="createdAt" width="180" />
             </el-table>
             <pagination
                 v-if="total > 0"

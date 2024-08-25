@@ -182,7 +182,7 @@ function handleQuery() {
     loading.value = true
     DeptAPI.getList(queryParams).then(data => {
         console.log('handleQuery', data)
-        deptList.value = data?.list
+        deptList.value = data
         loading.value = false
     })
 }
@@ -242,6 +242,7 @@ function handleSubmit() {
                     })
                     .finally(() => (loading.value = false))
             } else {
+                console.log('新增部门', formData)
                 DeptAPI.add(formData)
                     .then(() => {
                         ElMessage.success('新增成功')

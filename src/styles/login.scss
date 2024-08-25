@@ -36,9 +36,15 @@
 
         .captcha-image {
             height: 48px;
+            padding: 0 12px;
             cursor: pointer;
             border-top-right-radius: 6px;
             border-bottom-right-radius: 6px;
+
+            &.error {
+                line-height: 48px;
+                color: var(--el-color-danger);
+            }
         }
     }
 

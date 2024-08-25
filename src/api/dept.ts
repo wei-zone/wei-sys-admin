@@ -10,12 +10,7 @@ class DeptAPI {
      * @returns 部门树形表格数据
      */
     static getList(data?: DeptQuery) {
-        return request<
-            any,
-            {
-                list: DeptVO[]
-            }
-        >({
+        return request<any, DeptVO[]>({
             url: `${DEPT_BASE_URL}/pages`,
             method: 'post',
             data: data

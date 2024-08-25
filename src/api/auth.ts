@@ -17,7 +17,7 @@ class AuthAPI {
     static logout() {
         return request({
             url: `${AUTH_BASE_URL}/logout`,
-            method: 'logout'
+            method: 'post'
         })
     }
 
