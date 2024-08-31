@@ -193,10 +193,11 @@ function handleLoginSubmit() {
                     router.push({ path: path, query: queryParams })
                 })
                 .catch(() => {
-                    loading.value = false
                     getCaptcha()
                 })
-                .finally(() => {})
+                .finally(() => {
+                    loading.value = false
+                })
         }
     })
 }

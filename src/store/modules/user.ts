@@ -37,10 +37,12 @@ export const useUserStore = defineStore('user', () => {
             AuthAPI.getInfo()
                 .then(data => {
                     if (!data) {
+                        ElMessage.warning('未登录，请先登录')
                         reject('Verification failed, please Login again.')
                         return
                     }
                     if (!data.roles || data.roles.length <= 0) {
+                        ElMessage.warning('未分配角色，请先分配角色')
                         reject('getUserInfo: roles must be a non-null array!')
                         return
                     }
