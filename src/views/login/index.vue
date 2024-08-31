@@ -172,7 +172,6 @@ const loginRules = computed(() => {
 function getCaptcha() {
     AuthAPI.getCaptcha().then(
         data => {
-            console.log(data)
             loginData.value.captchaKey = data.captchaKey
             captchaBase64.value = data.captchaBase64
         },
@@ -194,11 +193,10 @@ function handleLoginSubmit() {
                     router.push({ path: path, query: queryParams })
                 })
                 .catch(() => {
+                    loading.value = false
                     getCaptcha()
                 })
-                .finally(() => {
-                    loading.value = false
-                })
+                .finally(() => {})
         }
     })
 }

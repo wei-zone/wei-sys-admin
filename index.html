@@ -29,22 +29,36 @@
         }
 
         .loader {
-            --d: 22px;
-
-            width: 4px;
-            height: 4px;
-            color: #25b09b;
-            border-radius: 50%;
-            box-shadow: calc(1 * var(--d)) calc(0 * var(--d)) 0 0, calc(0.707 * var(--d)) calc(0.707 * var(--d)) 0 1px,
-                calc(0 * var(--d)) calc(1 * var(--d)) 0 2px, calc(-0.707 * var(--d)) calc(0.707 * var(--d)) 0 3px,
-                calc(-1 * var(--d)) calc(0 * var(--d)) 0 4px, calc(-0.707 * var(--d)) calc(-0.707 * var(--d)) 0 5px,
-                calc(0 * var(--d)) calc(-1 * var(--d)) 0 6px;
-            animation: l27 1s infinite steps(8);
+            width: 40px;
+            height: 40px;
+            margin: 100px auto;
+            background-color: #333;
+            border-radius: 100%;
+            animation: sk-scaleout 1s infinite ease-in-out;
+            animation: sk-scaleout 1s infinite ease-in-out;
         }
 
-        @keyframes l27 {
+        @keyframes sk-scaleout {
+            0% {
+                transform: scale(0);
+            }
+
             100% {
-                transform: rotate(1turn);
+                opacity: 0;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes sk-scaleout {
+            0% {
+                transform: scale(0);
+                transform: scale(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1);
+                transform: scale(1);
             }
         }
     </style>
