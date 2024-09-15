@@ -341,29 +341,33 @@ onMounted(() => {
 <style lang="scss" scoped>
 .tags-container {
     width: 100%;
-    height: 34px;
+    height: 38px;
     background-color: var(--el-bg-color);
     border: 1px solid var(--el-border-color-light);
     box-shadow: 0 1px 1px var(--el-box-shadow-light);
 
     .tags-item {
-        display: inline-block;
-        padding: 3px 8px;
-        margin: 4px 0 0 5px;
+        display: inline-flex;
+        align-items: center;
+        height: 30px;
+        padding: 3px 10px;
+        margin: 3px 0;
+        margin-right: 10px;
         font-size: 12px;
         cursor: pointer;
         border: 1px solid var(--el-border-color-light);
+        border-radius: 4px;
 
         &:hover {
             color: var(--el-color-primary);
         }
 
         &:first-of-type {
-            margin-left: 15px;
+            margin-left: 10px;
         }
 
         &:last-of-type {
-            margin-right: 15px;
+            margin-right: 10px;
         }
 
         .close-icon {

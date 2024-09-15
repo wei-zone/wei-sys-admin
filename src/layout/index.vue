@@ -120,6 +120,7 @@ watch(route, () => {
     z-index: 999;
     width: $sidebar-width;
     background-color: $menu-background;
+    box-shadow: 0 4px 8px #0000004d;
     transition: width 0.28s;
 
     :deep(.el-menu) {

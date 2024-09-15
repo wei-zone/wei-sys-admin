@@ -37,8 +37,21 @@ service.interceptors.response.use(
             return data
         }
 
-        ElMessage.error(message || '系统出错')
-        return Promise.reject(new Error(message || 'Error'))
+        if (code === ResultEnum.TOKEN_INVALID) {
+            ElNotification({
+                title: '提示',
+                message: '您的会话已过期，请重新登录',
+                type: 'info'
+            })
+            useUserStoreHook()
+                .resetToken()
+                .then(() => {
+                    location.reload()
+                })
+        } else {
+            ElMessage.error(message || '系统出错')
+        }
+        return Promise.reject(new Error(message || '系统出错'))
     },
     (error: any) => {
         // 异常处理

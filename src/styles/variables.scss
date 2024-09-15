@@ -2,11 +2,10 @@
 
 :root {
     --menu-background: #304156;
-    --menu-text: #bfcbd9;
+    --menu-text: #fff;
     --menu-active-text: var(--el-menu-active-color);
     --menu-hover: #263445;
     --sidebar-logo-background: #2d3748;
-
     // 修复表格 fixed 列被选中后由于透明色导致叠字的 bug
     .el-table {
         --el-table-current-row-bg-color: rgb(235 243 250);
@@ -22,13 +21,13 @@ html.dark {
     --sidebar-logo-background: rgb(0 0 0 / 20%);
 }
 
-$menu-background: var(--menu-background); // 菜单背景色
+$menu-background: #2f3447; // 菜单背景色
 $menu-text: var(--menu-text); // 菜单文字颜色
 $menu-active-text: var(--menu-active-text); // 菜单激活文字颜色
 $menu-hover: var(--menu-hover); // 菜单悬停背景色
-$sidebar-logo-background: var(--sidebar-logo-background); // 侧边栏 Logo 背景色
+$sidebar-logo-background: #2f3447; // 侧边栏 Logo 背景色
 
 $sidebar-width: 210px; // 侧边栏宽度
 $sidebar-width-collapsed: 54px; // 侧边栏收缩宽度
 $navbar-height: 50px; // 导航栏高度
-$tags-view-height: 34px; // TagsView 高度
+$tags-view-height: 38px; // TagsView 高度
