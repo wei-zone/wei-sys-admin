@@ -21,4 +21,5 @@ node_modules/
 **/*.svg
 **/*.sh
 components.d.ts
-auto-imports.d.ts
+.eslintrc-auto-import.json
+components.d.ts
