@@ -19,8 +19,11 @@ node_modules/
 .local
 
 .prettierrc.cjs
-components.d.ts
-auto-imports.d.ts
 .eslintrc.cjs
 .eslintignore
 commitlint.config.cjs
+
+## type
+.eslintrc-auto-import.json
+auto-imports.d.ts
+components.d.ts

@@ -20,6 +20,8 @@ node_modules/
 
 **/*.svg
 **/*.sh
-components.d.ts
+
+## type
 .eslintrc-auto-import.json
+auto-imports.d.ts
 components.d.ts
